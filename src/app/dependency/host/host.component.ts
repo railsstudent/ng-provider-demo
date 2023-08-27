@@ -1,16 +1,20 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { OptionalComponent } from '../optional/optional.component';
+import { SelfOptionalComponent } from '../self-optional/self-optional.component';
 import { MessageService } from '../services/message.service';
 import { SkipSelfComponent } from '../skip-self/skip-self.component';
 
 @Component({
   selector: 'app-host',
   standalone: true,
-  imports: [SkipSelfComponent],
+  imports: [SkipSelfComponent, OptionalComponent, SelfOptionalComponent],
   template: `
     <div>
       <p>Host Component</p>
       <p>Msg: {{ msg }}</p>
       <app-skip-self></app-skip-self>
+      <app-self-optional></app-self-optional>
+      <app-optional></app-optional>
     </div>
   `,
   styles: [`
@@ -23,7 +27,7 @@ import { SkipSelfComponent } from '../skip-self/skip-self.component';
       padding: 0.5rem;
     }
 
-    app-skip-self {
+    app-skip-self, app-self-optional, app-optional {
       margin-top: 1rem;
     }
   `],
