@@ -12,7 +12,6 @@ import { MessageService } from '../services/message.service';
     <div>
       <p>Parent Component</p>
       <p>Msg: {{ msg }}</p>
-      <p>Happy Msg: {{ happyMsg }}</p>
       <app-host></app-host>
       <app-host-optional></app-host-optional>
     </div>
@@ -45,5 +44,4 @@ import { MessageService } from '../services/message.service';
 })
 export class ParentComponent {
   msg = inject(MessageService).message();
-  happyMsg = inject(HappyService).message();
 }
